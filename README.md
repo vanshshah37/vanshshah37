@@ -18,7 +18,7 @@
 
 ## Profiles
 
-- LinkedIn: https://www.linkedin.com/in/vansh-shah-746910376/
+- LinkedIn: https://www.linkedin.com/in/vanshshah37/
 - LeetCode: https://leetcode.com/u/VanshShah37/
 - Codeforces: https://codeforces.com/profile/Vaether37
 
