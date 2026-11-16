@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vansh Shah — Portfolio Identity GitHub README Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #08080a;
+      --panel: #111116;
+      --panel-2: #16161d;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --coral: #ff6b4a;
+      --coral-soft: rgba(255, 107, 74, 0.18);
+      --coral-glow: rgba(255, 107, 74, 0.35);
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(56, 189, 248, 0.16);
+      --emerald: #22c55e;
+      --amber: #f59e0b;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --faint: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--black);
+      color: var(--ink);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 30px 15px;
+      background-image: 
+        radial-gradient(circle at 85% 10%, rgba(255, 107, 74, 0.12) 0, transparent 40%),
+        radial-gradient(circle at 15% 45%, rgba(245, 158, 11, 0.08) 0, transparent 35%),
+        radial-gradient(circle at 65% 85%, rgba(56, 189, 248, 0.08) 0, transparent 40%);
+    }
+    .wrapper {
+      max-width: 890px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      padding: 36px 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+    .center { text-align: center; }
+    
+    /* Telemetry Header Pill */
+    .telemetry-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: #0d0d12;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    /* Hero Typography */
+    h1.hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin: 15px 0 6px;
+      background: linear-gradient(135deg, #ffffff 40%, #ff6b4a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-tagline {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      color: var(--coral);
+      margin-bottom: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .hero-bio {
+      color: var(--muted);
+      font-size: 14.5px;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    
+    /* Badge Strip */
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    .badge-strip img { height: 28px; }
+
+    /* Section Headers */
+    h2.section-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 35px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h2.section-heading span.accent-icon {
+      color: var(--coral);
+    }
+    
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .custom-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+      transition: all 0.25s ease;
+    }
+    .custom-card:hover {
+      border-color: var(--coral);
+      box-shadow: 0 8px 24px var(--coral-soft);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .pill-coral { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral); }
+    .pill-cyan { background: var(--cyan-soft); color: var(--cyan); border: 1px solid var(--cyan); }
+    .pill-live { background: rgba(34, 197, 94, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
+
+    /* Project Cards Showcase */
+    .project-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .project-card:hover {
+      border-color: rgba(255, 107, 74, 0.4);
+    }
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .project-sub {
+      color: var(--muted);
+      font-size: 13.5px;
+      margin: 6px 0 12px;
+      line-height: 1.5;
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .tech-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      border: 1px solid var(--line);
+    }
+    .project-links {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .btn-action {
+      background: var(--coral);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .btn-action:hover { background: #ff5733; }
+    .btn-ghost-link {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-ghost-link:hover { text-decoration: underline; }
+
+    /* 3D Contribution Box */
+    .contrib-3d-box {
+      background: #090a10;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+    }
+    .contrib-3d-box img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Telemetry Bar (From your Portfolio) -->
+    <div class="telemetry-bar">
+      <div>
+        <span>BASED IN AHMEDABAD, INDIA</span> •
+        <span>B.TECH CSE · NIRMA UNIVERSITY</span> •
+        <span>CGPA 8.7+</span>
+      </div>
+      <div>
+        <span class="pulse-dot"></span>
+        <span style="color: var(--emerald); font-weight: 600;">AVAILABLE FOR HIGH-IMPACT ROLES</span>
+      </div>
+    </div>
+
+    <!-- Hero Identity -->
+    <div class="center">
+      <h1 class="hero-name">VANSH SHAH</h1>
+      <div class="hero-tagline">// SOFTWARE ENGINEER &amp; HACKATHON BUILDER</div>
+      
+      <p class="hero-bio">
+        Building high-performance software end-to-end — from algorithmic optimization in <b>C++</b> 
+        and offline-first <b>Flutter</b> systems to full-stack web platforms in <b>React 19 &amp; Next.js</b>.
+        Active Open Source Contributor to <b>Microsoft VS Code Docs</b>.
+      </p>
+
+      <img src="https://readme-typing-svg.demolab.com/?font=Outfit&weight=600&size=20&pause=1200&color=FF6B4A&center=true&vCenter=true&width=700&lines=⚡+Odoo+Hackathon+Finalist;✦+315%2B+LeetCode+Problems+Solved;◈+Codeforces+Contestant+%7C+Rating+1095%2B;⚡+Open+Source+Contributor+%40+Microsoft+VS+Code;◈+Creator+of+Safira+Luxury+Travel+OS" alt="Dynamic Typing SVG" />
+
+      <div class="badge-strip">
+        <a href="https://safiraodoohackathon.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Live_Demo-Safira_Travel_OS-FF6B4A?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+        <a href="https://www.linkedin.com/in/vanshshah37/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Vansh_Shah-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+        <a href="https://leetcode.com/u/VanshShah37/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-VanshShah37-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" /></a>
+        <a href="https://codeforces.com/profile/Vaether37" target="_blank"><img src="https://img.shields.io/badge/Codeforces-Vaether37-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" /></a>
+        <a href="https://vanshshah37.github.io" target="_blank"><img src="https://img.shields.io/badge/Portfolio-VanshShah.dev-111116?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" /></a>
+      </div>
+
+      <img src="https://komarev.com/ghpvc/?username=vanshshah37&label=Profile%20Views&color=ff6b4a&style=flat-square&labelColor=111116" alt="Profile Views" />
+    </div>
+
+    <!-- 1. LIVE COMPETITIVE PROGRAMMING (WITH 52-WEEK HEATMAP AS REQUESTED) -->
+    <h2 class="section-heading">
+      <span class="accent-icon">⚔️</span> Live Problem Solving &amp; Ratings
+    </h2>
+
+    <div class="grid-2">
+      <!-- LEETCODE CARD WITH LIVE 52-WEEK HEATMAP (Image 1 Feature) -->
+      <div class="custom-card center">
+        <div class="card-top">
+          <strong style="font-size: 15px;">LeetCode Performance</strong>
+          <span class="pill pill-coral">@VanshShah37</span>
+        </div>
+        <!-- jacoblin.cool with &ext=heatmap produces the exact 52-week heatmap shown in Image 1 -->
+        <a href="https://leetcode.com/u/VanshShah37/" target="_blank">
+          <img src="https://leetcard.jacoblin.cool/VanshShah37?theme=dark&font=Outfit&ext=heatmap" alt="LeetCode Live Stats & 52-Week Heatmap" style="width: 100%; border-radius: 8px;" />
+        </a>
+      </div>
+
+      <!-- CODEFORCES CARD -->
+      <div class="custom-card center">
+        <div class="card-top">
+          <strong style="font-size: 15px;">Codeforces Arena</strong>
+          <span class="pill pill-cyan">@Vaether37</span>
+        </div>
+        <a href="https://codeforces.com/profile/Vaether37" target="_blank">
+          <img src="https://codeforces-readme-stats.vercel.app/api/card?username=Vaether37&theme=dark" alt="Codeforces Live Card" style="width: 100%; border-radius: 8px;" />
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. 3D ISOMETRIC CONTRIBUTION GRAPH (Image 2 Feature) -->
+    <h2 class="section-heading">
+      <span class="accent-icon">🧊</span> 3D Isometric Contribution Architecture
+    </h2>
+    
+    <div class="contrib-3d-box">
+      <p style="font-size: 12.5px; color: var(--muted); font-family: 'DM Mono', monospace; margin-bottom: 12px;">
+        AUTOMATED VIA GITHUB ACTION: <code>yoshi389111/github-profile-3d-contrib</code>
+      </p>
+      <!-- Picture tag referencing the 3D action output -->
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yoshi389111/github-profile-3d-contrib/main/docs/demo/profile-night-rainbow.svg" />
+        <img src="https://raw.githubusercontent.com/yoshi389111/github-profile-3d-contrib/main/docs/demo/profile-night-rainbow.svg" alt="3D Profile Contribution Graph" width="100%" />
+      </picture>
+      <div style="font-size: 11.5px; color: var(--faint); margin-top: 8px;">
+        ✨ Configured in <code>.github/workflows/profile-3d.yml</code> — auto-generates your live 3D commit towers, radar chart &amp; language donut daily!
+      </div>
+    </div>
+
+    <!-- 3. FEATURED SYSTEMS (Direct from Portfolio) -->
+    <h2 class="section-heading">
+      <span class="accent-icon">🚀</span> Featured Production Systems
+    </h2>
+
+    <!-- Project 1: Safira -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="project-title">
+          <span>Safira — Luxury Travel OS</span>
+        </div>
+        <span class="pill pill-live"><span class="pulse-dot"></span> Odoo Hackathon Finalist</span>
+      </div>
+      <p class="project-sub">
+        An ultra-premium, full-featured travel planning operating system engineered for luxury explorers.
+        Unifies bespoke multi-day itineraries, live budget vault, interactive calendar matrix, and excursion curation into a fluid frosted-glass interface.
+      </p>
+      <div class="tech-tags">
+        <span class="tech-tag">React 19</span>
+        <span class="tech-tag">Tailwind CSS</span>
+        <span class="tech-tag">Vite</span>
+        <span class="tech-tag">Frosted Glass UI</span>
+        <span class="tech-tag">LocalStorage</span>
+      </div>
+      <div class="project-links">
+        <a href="https://safiraodoohackathon.vercel.app/" target="_blank" class="btn-action">Launch Live Demo ↗</a>
+        <a href="https://github.com/vanshshah37/safira_odoo_hackathon" target="_blank" class="btn-ghost-link">View Repository ↗</a>
+      </div>
+    </div>
+
+    <!-- Project 2: Family Vault -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="project-title">
+          <span>Family Vault</span>
+        </div>
+        <span class="pill pill-cyan">Offline-First Mobile &amp; Desktop</span>
+      </div>
+      <p class="project-sub">
+        A private, zero-cloud sanctuary for sensitive identity documents, records, and credentials.
+        Built with Flutter and SQLite featuring on-device encryption so personal data never touches external cloud servers.
+      </p>
+      <div class="tech-tags">
+        <span class="tech-tag">Flutter</span>
+        <span class="tech-tag">Dart</span>
+        <span class="tech-tag">SQLite</span>
+        <span class="tech-tag">Local Encryption</span>
+        <span class="tech-tag">Android &amp; Windows</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/vanshshah37/Family-vault" target="_blank" class="btn-action">View Repository ↗</a>
+      </div>
+    </div>
+
+    <!-- Project 3: Database Analyzer -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="project-title">
+          <span>Database Analyzer &amp; CRM</span>
+        </div>
+        <span class="pill pill-coral">Full-Stack Data Engine</span>
+      </div>
+      <p class="project-sub">
+        Operational workspace transforming raw customer databases into high-confidence decisions with automated schema profiling, data health metrics, and dynamic algorithmic lead scoring.
+      </p>
+      <div class="tech-tags">
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Prisma ORM</span>
+        <span class="tech-tag">SQLite</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/vanshshah37/data_base_analysis" target="_blank" class="btn-action">View Repository ↗</a>
+      </div>
+    </div>
+
+    <!-- 4. OPEN SOURCE IMPACT (MICROSOFT VS CODE) -->
+    <h2 class="section-heading">
+      <span class="accent-icon">🌐</span> Open Source Impact (Microsoft VS Code Docs)
+    </h2>
+
+    <div class="grid-2">
+      <div class="custom-card">
+        <div class="card-top">
+          <strong style="font-size: 13.5px;">microsoft/vscode-docs</strong>
+          <span class="pill pill-coral">PR #10671</span>
+        </div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+          fix(workbench): accept application/json with charset parameters
+        </p>
+        <a href="https://github.com/microsoft/vscode-docs/pull/10671" target="_blank" style="font-size: 12px; color: var(--cyan); text-decoration: none;">View PR on GitHub ↗</a>
+      </div>
+
+      <div class="custom-card">
+        <div class="card-top">
+          <strong style="font-size: 13.5px;">microsoft/vscode-docs</strong>
+          <span class="pill pill-coral">PR #10670</span>
+        </div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+          build: remove obsolete container mount paths from gitattributes
+        </p>
+        <a href="https://github.com/microsoft/vscode-docs/pull/10670" target="_blank" style="font-size: 12px; color: var(--cyan); text-decoration: none;">View PR on GitHub ↗</a>
+      </div>
+
+      <div class="custom-card">
+        <div class="card-top">
+          <strong style="font-size: 13.5px;">microsoft/vscode-docs</strong>
+          <span class="pill pill-coral">PR #10669</span>
+        </div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+          build: add feature lifecycle validation script, unit tests, and CI check
+        </p>
+        <a href="https://github.com/microsoft/vscode-docs/pull/10669" target="_blank" style="font-size: 12px; color: var(--cyan); text-decoration: none;">View PR on GitHub ↗</a>
+      </div>
+
+      <div class="custom-card">
+        <div class="card-top">
+          <strong style="font-size: 13.5px;">microsoft/vscode-docs</strong>
+          <span class="pill pill-coral">PR #10668</span>
+        </div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">
+          docs: fix broken cross-reference anchors across documentation
+        </p>
+        <a href="https://github.com/microsoft/vscode-docs/pull/10668" target="_blank" style="font-size: 12px; color: var(--cyan); text-decoration: none;">View PR on GitHub ↗</a>
+      </div>
+    </div>
+
+    <!-- 5. TECHNICAL ARSENAL -->
+    <h2 class="section-heading">
+      <span class="accent-icon">🛠️</span> Technical Arsenal
+    </h2>
+    <div class="center" style="margin: 20px 0;">
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Languages &amp; Core Engines</p>
+      <img src="https://skillicons.dev/icons?i=cpp,c,py,ts,js,dart&theme=dark" /><br/><br/>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Frontend, Mobile &amp; State</p>
+      <img src="https://skillicons.dev/icons?i=react,nextjs,flutter,tailwind,html,css&theme=dark" /><br/><br/>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Backend, Databases &amp; DevOps</p>
+      <img src="https://skillicons.dev/icons?i=nodejs,prisma,sqlite,mysql,git,github,vscode,linux&theme=dark" />
+    </div>
+
+    <!-- 6. GITHUB REAL-TIME ANALYTICS -->
+    <h2 class="section-heading">
+      <span class="accent-icon">📊</span> Real-Time GitHub Analytics
+    </h2>
+    <div class="center" style="margin: 20px 0;">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=vanshshah37&bg_color=08080a&color=ff6b4a&line=38bdf8&point=ff6b4a&area=true&hide_border=true" width="100%" alt="Activity graph" style="border-radius: 8px;" />
+      <br/><br/>
+      <img src="https://github-readme-stats-fast.vercel.app/api?username=vanshshah37&show_icons=true&title_color=ff6b4a&icon_color=38bdf8&text_color=94a3b8&bg_color=111116&border_color=252530" height="155" alt="Stats" />
+      <img src="https://streak-stats.demolab.com/?user=vanshshah37&theme=dark&background=111116&ring=ff6b4a&fire=38bdf8&currStreakLabel=ff6b4a&border=252530" height="155" alt="Streak" />
+    </div>
+
+  </div>
+
+</body>
+</html>
