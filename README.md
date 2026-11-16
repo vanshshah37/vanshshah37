@@ -36,29 +36,37 @@
 
 <br/>
 
-## ⚡ About Me
+## 👤 Who Am I
 
 <div align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXQ4ampmenBjbG1oZjAwZG1qNnBtd285Mjg4aWdsZXZjNDdyZTR2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/93UOscPyDH8cdRfSaT/giphy.gif" alt="Terminal Code Window" width="380" />
-</div>
-
-<br/>
 
 ```
 $ whoami
-Vansh Shah — CS Undergrad, Problem Solver & Hackathon Finalist
 
-$ cat focus.json
-{
-  "academics": "B.Tech Computer Science & Engineering @ Nirma University (CGPA 8.7+)",
-  "algorithmic_speed": "315+ LeetCode Solved · Codeforces Rating 1095+ (Vaether37)",
-  "open_source": "Active Contributor to microsoft/vscode-docs",
-  "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS, Vite)",
-  "philosophy": "Write clean code, optimize runtime complexity, and ship production-ready software."
-}
+CS student at Nirma University — software engineer, builder, and problem-solver.
+I build tools that sit between "actually useful" and "computationally rigorous":
+  → Safira (luxury travel OS), Family Vault (offline-first personal safe),
+  → DBSchemaX (relational schema & functional dependency analyzer)
+
+$ cat interests.txt
+competitive programming & DSA in optimized C++ (315+ solved)
+open-source contributor (microsoft/vscode-docs)
+full-stack product engineering (React 19, Next.js, Flutter, Prisma)
+offline-first systems architecture, SQLite & on-device encryption
+
+$ status
+Odoo Hackathon finalist, competitive programmer (CF 1095+),
+driven by algorithmic elegance and clean production code
+focused, deeply curious, open to high-impact engineering opportunities
+
+$ disclaimer
+not claiming expertise across every tech buzzword —
+most of this is actively used in production and contests, and continuously learning
 ```
 
-Building high-performance software end-to-end — from algorithmic optimization in **C++** and offline-first personal data systems in **Flutter** to modern full-stack web platforms in **React 19 & Next.js**.
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXQ4ampmenBjbG1oZjAwZG1qNnBtd285Mjg4aWdsZXZjNDdyZTR2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/93UOscPyDH8cdRfSaT/giphy.gif" alt="Terminal Code Window" width="340" />
+
+</div>
 
 <br/>
 
