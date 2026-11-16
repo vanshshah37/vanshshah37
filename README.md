@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Hero Card matching Portfolio Identity -->
-<img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/assets/hero.svg" width="100%" alt="Vansh Shah — Software Engineer &amp; Hackathon Builder" />
+<img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/assets/hero.svg?v=2" width="100%" alt="Vansh Shah — Software Engineer &amp; Hackathon Builder" />
 
 <br/><br/>
 
@@ -74,9 +74,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-night-rainbow.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-green.svg" />
-  <img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-night-rainbow.svg" width="100%" alt="3D Profile Contribution Calendar" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-night-rainbow.svg?v=2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-green.svg?v=2" />
+  <img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/profile-3d-contrib/profile-night-rainbow.svg?v=2" width="100%" alt="3D Profile Contribution Calendar" />
 </picture>
 
 </div>
