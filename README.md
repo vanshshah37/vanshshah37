@@ -33,7 +33,7 @@ Vansh Shah — CS Undergrad, Problem Solver & Hackathon Finalist
 
 $ cat focus.json
 {
-  "academics": "B.Tech Computer Science & Engineering @ Nirma University (CGPA 8.7+)",
+  "academics": "B.Tech Computer Science & Engineering @ Nirma University (CGPA 8.5+)",
   "algorithmic_speed": "315+ LeetCode Solved · Codeforces Rating 1095+ (Vaether37)",
   "open_source": "Active Contributor to microsoft/vscode-docs",
   "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS, Vite)",
