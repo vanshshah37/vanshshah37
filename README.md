@@ -1,7 +1,7 @@
 <div align="center">
 
-<!-- Retro Pixel Tech Workspace Header -->
-<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" alt="Pixel Art Setup" width="600" />
+<!-- Hero Banner: Panoramic Cyberpunk Pixel Art Room -->
+<img src="https://user-images.githubusercontent.com/74038190/238355349-7d484dc9-68a9-4ee6-a767-aea59035c12d.gif" alt="Cyberpunk Tech Workspace" width="100%" />
 
 <br/><br/>
 
@@ -31,9 +31,15 @@
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## ⚡ About Me
+
+<table width="100%" border="0">
+  <tr>
+    <td width="60%" valign="top">
 
 ```
 $ whoami
@@ -41,19 +47,28 @@ Vansh Shah — CS Undergrad, Problem Solver & Hackathon Finalist
 
 $ cat focus.json
 {
-  "academics": "B.Tech Computer Science & Engineering @ Nirma University (CGPA 8.5+)",
-  "algorithmic_speed": "315+ LeetCode Solved · Codeforces Rating 1095+ (Vaether37)",
+  "academics": "B.Tech CSE @ Nirma University (CGPA 8.7+)",
+  "algorithmic_speed": "315+ LeetCode Solved · Codeforces 1095+ (Vaether37)",
   "open_source": "Active Contributor to microsoft/vscode-docs",
-  "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS, Vite)",
-  "philosophy": "Write clean code, optimize runtime complexity, and ship production-ready software."
+  "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS)",
+  "philosophy": "Write clean code, minimize complexity, ship products."
 }
 ```
 
 Building high-performance software end-to-end — from algorithmic optimization in **C++** and offline-first personal data systems in **Flutter** to modern full-stack web platforms in **React 19 & Next.js**.
 
+    </td>
+    <td width="40%" valign="middle" align="center">
+      <img src="https://media.giphy.com/media/93UOscPyDH8cdRfSaT/giphy.gif" alt="Terminal Code Window" width="300" />
+    </td>
+  </tr>
+</table>
+
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## ⚔️ Live Problem Solving & Ratings
 
@@ -80,7 +95,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## 🧊 3D Isometric Contribution Architecture
 
@@ -96,7 +113,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## 🚀 Featured Production Systems
 
@@ -161,7 +180,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## 🌐 Open Source Impact (Microsoft VS Code Docs)
 
@@ -206,12 +227,14 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## 🛠️ Technical Arsenal
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif" alt="Developer Coding GIF" width="340" />
+  <img src="https://media.giphy.com/media/YKLLS6ZGQsrwZVgXix/giphy.gif" alt="Coding Terminal Stream" width="380" />
 </div>
 
 <br/>
@@ -238,7 +261,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 ## 📈 Activity & Real-Time Analytics
 
@@ -258,7 +283,9 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+<br/>
 
 <div align="center">
   <sub>Engineered with precision by <b><a href="https://vanshshah37.github.io">Vansh Shah</a></b> · Built for high performance &amp; algorithmic excellence.</sub>
