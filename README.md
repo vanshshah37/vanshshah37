@@ -1,7 +1,20 @@
 <div align="center">
 
-<!-- Hero Card matching Portfolio Identity -->
-<img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/assets/hero.svg?v=2" width="100%" alt="Vansh Shah — Software Engineer &amp; Hackathon Builder" />
+<!-- Retro Pixel Tech Workspace Header -->
+<img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" alt="Pixel Art Setup" width="600" />
+
+<br/><br/>
+
+<!-- Dynamic Typing Headline in Warm Coral -->
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=22&pause=1200&color=FF6B4A&center=true&vCenter=true&width=650&lines=CS+Undergrad+%40+Nirma+University;DSA+%2B+Competitive+Programmer;Open+Source+%40+Microsoft+VS+Code;Safira+Luxury+Travel+OS+Builder" alt="Typing Headline" />
+
+<br/>
+
+<samp>
+  📍 Ahmedabad, India &nbsp;·&nbsp; 
+  🎓 B.Tech CSE @ Nirma University (CGPA 8.7+) &nbsp;·&nbsp; 
+  🟢 Available for High-Impact Roles
+</samp>
 
 <br/><br/>
 
@@ -196,6 +209,12 @@ Building high-performance software end-to-end — from algorithmic optimization 
 ---
 
 ## 🛠️ Technical Arsenal
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif" alt="Developer Coding GIF" width="340" />
+</div>
+
+<br/>
 
 <div align="center">
 
