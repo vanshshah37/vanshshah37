@@ -14,11 +14,6 @@
 <a href="https://vanshshah37.github.io" target="_blank"><img src="https://img.shields.io/badge/PORTFOLIO-VANSHSHAH.DEV-08080A?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" /></a>
 <a href="mailto:contact@vanshshah.dev"><img src="https://img.shields.io/badge/EMAIL-GET_IN_TOUCH-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 
-<br/><br/>
-
-<!-- Visitor Counter -->
-<img src="https://komarev.com/ghpvc/?username=vanshshah37&label=Profile%20Views&color=ff6b4a&style=flat-square&labelColor=08080a" alt="Profile Views" />
-
 </div>
 
 <br/>
