@@ -27,19 +27,22 @@
 <a href="https://vanshshah37.github.io" target="_blank"><img src="https://img.shields.io/badge/PORTFOLIO-VANSHSHAH.DEV-08080A?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" /></a>
 <a href="mailto:contact@vanshshah.dev"><img src="https://img.shields.io/badge/EMAIL-GET_IN_TOUCH-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 
-</div>
+<br/><br/>
 
-<br/>
-
+<!-- Gradient Line (1 of 2) -->
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
+
+</div>
 
 <br/>
 
 ## ⚡ About Me
 
-<table width="100%" border="0">
-  <tr>
-    <td width="60%" valign="top">
+<div align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXQ4ampmenBjbG1oZjAwZG1qNnBtd285Mjg4aWdsZXZjNDdyZTR2eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/93UOscPyDH8cdRfSaT/giphy.gif" alt="Terminal Code Window" width="380" />
+</div>
+
+<br/>
 
 ```
 $ whoami
@@ -47,28 +50,19 @@ Vansh Shah — CS Undergrad, Problem Solver & Hackathon Finalist
 
 $ cat focus.json
 {
-  "academics": "B.Tech CSE @ Nirma University (CGPA 8.7+)",
-  "algorithmic_speed": "315+ LeetCode Solved · Codeforces 1095+ (Vaether37)",
+  "academics": "B.Tech Computer Science & Engineering @ Nirma University (CGPA 8.7+)",
+  "algorithmic_speed": "315+ LeetCode Solved · Codeforces Rating 1095+ (Vaether37)",
   "open_source": "Active Contributor to microsoft/vscode-docs",
-  "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS)",
-  "philosophy": "Write clean code, minimize complexity, ship products."
+  "flagship_build": "Safira Luxury Travel OS (React 19, Tailwind CSS, Vite)",
+  "philosophy": "Write clean code, optimize runtime complexity, and ship production-ready software."
 }
 ```
 
 Building high-performance software end-to-end — from algorithmic optimization in **C++** and offline-first personal data systems in **Flutter** to modern full-stack web platforms in **React 19 & Next.js**.
 
-    </td>
-    <td width="40%" valign="middle" align="center">
-      <img src="https://media.giphy.com/media/93UOscPyDH8cdRfSaT/giphy.gif" alt="Terminal Code Window" width="300" />
-    </td>
-  </tr>
-</table>
-
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 ## ⚔️ Live Problem Solving & Ratings
 
@@ -95,9 +89,7 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 ## 🧊 3D Isometric Contribution Architecture
 
@@ -113,9 +105,7 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 ## 🚀 Featured Production Systems
 
@@ -180,9 +170,7 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 ## 🌐 Open Source Impact (Microsoft VS Code Docs)
 
@@ -227,14 +215,12 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 ## 🛠️ Technical Arsenal
 
 <div align="center">
-  <img src="https://media.giphy.com/media/YKLLS6ZGQsrwZVgXix/giphy.gif" alt="Coding Terminal Stream" width="380" />
+  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZHZ6ZnVxNnJ0aGZkN3ZpOTdxbHpwNm1jZWo1NWV2bnRza3l0OHJpMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YKLLS6ZGQsrwZVgXix/giphy.gif" alt="Coding Terminal Stream" width="380" />
 </div>
 
 <br/>
@@ -261,6 +247,7 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
+<!-- Gradient Line (2 of 2) -->
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
 
 <br/>
@@ -283,9 +270,7 @@ Building high-performance software end-to-end — from algorithmic optimization 
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="2" />
-
-<br/>
+---
 
 <div align="center">
   <sub>Engineered with precision by <b><a href="https://vanshshah37.github.io">Vansh Shah</a></b> · Built for high performance &amp; algorithmic excellence.</sub>
