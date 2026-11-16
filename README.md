@@ -1,39 +1,18 @@
 <div align="center">
 
-<!-- Telemetry Pill -->
-<p>
-  <code>📍 AHMEDABAD, INDIA</code> &nbsp;•&nbsp; 
-  <code>🎓 B.TECH CSE @ NIRMA UNIVERSITY (CGPA 8.5+)</code> &nbsp;•&nbsp; 
-  <code>🟢 AVAILABLE FOR HIGH-IMPACT OPPORTUNITIES</code>
-</p>
-
-<div align="center">
-
-<!-- Telemetry Pill -->
-<p>
-  <code>📍 AHMEDABAD, INDIA</code> &nbsp;•&nbsp; 
-  <code>🎓 B.TECH CSE @ NIRMA UNIVERSITY (CGPA 8.7+)</code> &nbsp;•&nbsp; 
-  <code>🟢 AVAILABLE FOR HIGH-IMPACT OPPORTUNITIES</code>
-</p>
-
-# Hi, I'm Vansh Shah 👋
-
-<h3>Software Engineer &amp; Hackathon Builder</h3>
-
-<!-- Dynamic Animated Typing SVG -->
-<a href="https://github.com/vanshshah37">
-  <img src="https://readme-typing-svg.demolab.com/?font=Outfit&weight=600&size=20&pause=1200&color=FF6B4A&center=true&vCenter=true&width=700&lines=⚡+Odoo+Hackathon+Finalist;✦+315%2B+LeetCode+Problems+Solved;◈+Codeforces+Contestant+%7C+Rating+1095%2B;⚡+Open+Source+Contributor+%40+Microsoft+VS+Code;◈+Creator+of+Safira+Luxury+Travel+OS" alt="Dynamic Typing Headline" />
-</a>
+<!-- Hero Card matching Portfolio Identity -->
+<img src="./assets/hero.svg" width="100%" alt="Vansh Shah — Software Engineer &amp; Hackathon Builder" />
 
 <br/><br/>
 
 <!-- Cohesive Social Badges -->
-<a href="https://safiraodoohackathon.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Live_Demo-Safira_Travel_OS-FF6B4A?style=for-the-badge&logo=vercel&logoColor=white" /></a>
-<a href="https://www.linkedin.com/in/vanshshah37/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Vansh_Shah-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://leetcode.com/u/VanshShah37/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-VanshShah37-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" /></a>
-<a href="https://codeforces.com/profile/Vaether37" target="_blank"><img src="https://img.shields.io/badge/Codeforces-Vaether37-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" /></a>
-<a href="https://vanshshah37.github.io" target="_blank"><img src="https://img.shields.io/badge/Portfolio-VanshShah.dev-08080A?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" /></a>
-<a href="mailto:contact@vanshshah.dev"><img src="https://img.shields.io/badge/Email-Get_In_Touch-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+<a href="https://safiraodoohackathon.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/LIVE_DEMO-SAFIRA_TRAVEL_OS-FF6B4A?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+<a href="https://www.linkedin.com/in/vanshshah37/" target="_blank"><img src="https://img.shields.io/badge/LINKEDIN-VANSH_SHAH-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://leetcode.com/u/VanshShah37/" target="_blank"><img src="https://img.shields.io/badge/LEETCODE-VANSHSHAH37-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" /></a>
+<br/>
+<a href="https://codeforces.com/profile/Vaether37" target="_blank"><img src="https://img.shields.io/badge/CODEFORCES-VAETHER37-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" /></a>
+<a href="https://vanshshah37.github.io" target="_blank"><img src="https://img.shields.io/badge/PORTFOLIO-VANSHSHAH.DEV-08080A?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" /></a>
+<a href="mailto:contact@vanshshah.dev"><img src="https://img.shields.io/badge/EMAIL-GET_IN_TOUCH-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 
 <br/><br/>
 
@@ -104,8 +83,6 @@ Building high-performance software end-to-end — from algorithmic optimization 
   <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-green.svg" />
   <img src="./profile-3d-contrib/profile-night-rainbow.svg" width="100%" alt="3D Profile Contribution Calendar" />
 </picture>
-
-<sub><i>Automated daily via GitHub Actions: <a href="./.github/workflows/profile-3d.yml"><code>.github/workflows/profile-3d.yml</code></a> (powered by <code>yoshi389111/github-profile-3d-contrib</code>)</i></sub>
 
 </div>
 

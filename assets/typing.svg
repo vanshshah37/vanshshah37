@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 40" width="100%" height="40">
+  <style>
+    @keyframes cycleText {
+      0%, 16% { content: "⚡ Odoo Hackathon Finalist"; }
+      20%, 36% { content: "✦ 315+ LeetCode Problems Solved"; }
+      40%, 56% { content: "◈ Codeforces Contestant | Rating 1095+"; }
+      60%, 76% { content: "⚡ Open Source Contributor @ Microsoft VS Code"; }
+      80%, 96% { content: "◈ Creator of Safira Luxury Travel OS"; }
+      100% { content: "⚡ Odoo Hackathon Finalist"; }
+    }
+    .typing-text {
+      font-family: 'Outfit', 'DM Mono', -apple-system, sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      fill: #FF6B4A;
+      letter-spacing: 0.5px;
+    }
+    .text-container::after {
+      content: "⚡ Odoo Hackathon Finalist";
+      animation: cycleText 12s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .cursor {
+      animation: blink 0.8s infinite;
+      fill: #FF6B4A;
+    }
+  </style>
+
+  <!-- Fallback text for SVG engines without pseudo-elements -->
+  <g text-anchor="middle" transform="translate(350, 26)">
+    <text class="typing-text">
+      <tspan class="text-container"></tspan>
+      <tspan class="cursor">|</tspan>
+    </text>
+  </g>
+</svg>
