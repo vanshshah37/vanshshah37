@@ -99,6 +99,20 @@ most of this is actively used in production and contests, and continuously learn
 
 ---
 
+## 🏆 GitHub Milestones & Trophies
+
+<div align="center">
+
+<a href="https://github.com/ryo-ma/github-profile-trophy">
+  <img src="https://github-trophies.devomb.com/?username=vanshshah37&theme=onedark&no-frame=true&margin-w=4&rank=-?" width="100%" alt="GitHub Profile Trophies" />
+</a>
+
+</div>
+
+<br/>
+
+---
+
 ## 🧊 3D Isometric Contribution Architecture
 
 <div align="center">
@@ -263,13 +277,6 @@ most of this is actively used in production and contests, and continuously learn
 ## 📈 Activity & Real-Time Analytics
 
 <div align="center">
-
-<!-- GitHub Profile Trophies (onedark theme, earned achievements only) -->
-<a href="https://github.com/ryo-ma/github-profile-trophy">
-  <img src="https://github-trophies.devomb.com/?username=vanshshah37&theme=onedark&no-frame=true&margin-w=4&rank=-?" width="100%" alt="GitHub Profile Trophies" />
-</a>
-
-<br/><br/>
 
 <!-- GitHub Activity Graph -->
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=vanshshah37&bg_color=08080a&color=ff6b4a&line=38bdf8&point=ff6b4a&area=true&hide_border=true" width="100%" alt="GitHub Activity Graph" />
