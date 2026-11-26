@@ -2,14 +2,11 @@ name: Generate Activity Graph
 
 on:
   schedule:
-    - cron: "0 */4 * * *" # Runs every 4 hours
+    - cron: "0 */2 * * *" # Runs every 2 hours
   workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - "scripts/generate_activity_graph.py"
-      - ".github/workflows/activity-graph.yml"
 
 permissions:
   contents: write
