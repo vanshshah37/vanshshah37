@@ -1,212 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" width="100%" height="100%">
   <defs>
-    <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff6b4a" stop-opacity="0.32" />
-      <stop offset="65%" stop-color="#38bdf8" stop-opacity="0.08" />
-      <stop offset="100%" stop-color="#08080a" stop-opacity="0.0" />
+    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b4a" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#ff6b4a" stop-opacity="0.01" />
     </linearGradient>
-    <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="70%" stop-color="#ff6b4a" />
-      <stop offset="100%" stop-color="#ff8e75" />
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="glow" />
-      <feComposite in="SourceGraphic" in2="glow" operator="over" />
-    </filter>
   </defs>
 
-  <!-- Card Background -->
-  <rect width="1200" height="370" rx="12" fill="#08080a" stroke="#252530" stroke-width="1.2" />
+  <!-- Frame Background -->
+  <rect width="1100" height="320" rx="8" fill="#08080a" stroke="#1f222e" stroke-width="1" />
 
-  <!-- Top Header -->
-  <g id="header">
-    <!-- Pulse Indicator -->
-    <circle cx="69" cy="42" r="4.5" fill="#22c55e" />
-    <circle cx="69" cy="42" r="8" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.4" />
-    
-    <text x="87" y="47" font-family="'Fira Code', 'Segoe UI', monospace" font-size="16" font-weight="700" fill="#f8fafc" letter-spacing="0.5">
-      CONTRIBUTION &amp; CODE ACTIVITY FLOW
-    </text>
-    <text x="87" y="68" font-family="'Segoe UI', sans-serif" font-size="12" fill="#94a3b8">
-      Real-time rolling 30-day velocity · Commits, Pull Requests, Code Reviews &amp; Issues
-    </text>
+  <!-- Clean Minimalist Header -->
+  <text x="55" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5f9" letter-spacing="0.2">Activity · Last 30 Days</text>
+  <text x="55" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">Oct 28 – Nov 26 · commits, pull requests, reviews, and issues</text>
 
-    <!-- Stat Badges (Right aligned) -->
-    <g transform="translate(805, 28)">
-      <!-- Total 30D -->
-      <rect x="0" y="0" width="105" height="46" rx="8" fill="#121217" stroke="#252530" stroke-width="1" />
-      <text x="52" y="18" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">TOTAL (30D)</text>
-      <text x="52" y="38" text-anchor="middle" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#ff6b4a">72</text>
+  <!-- Simple summary stats on right -->
+  <text x="1065" y="40" text-anchor="end" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#ff6b4a">
+    73 <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">contributions</tspan> &#160;·&#160; <tspan fill="#38bdf8">18</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">peak</tspan> &#160;·&#160; <tspan fill="#94a3b8">2.4</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">avg/day</tspan>
+  </text>
 
-      <!-- Peak Day -->
-      <rect x="115" y="0" width="105" height="46" rx="8" fill="#121217" stroke="#252530" stroke-width="1" />
-      <text x="167" y="18" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">PEAK VELOCITY</text>
-      <text x="167" y="38" text-anchor="middle" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#38bdf8">18/day</text>
-
-      <!-- Avg / Day -->
-      <rect x="230" y="0" width="105" height="46" rx="8" fill="#121217" stroke="#252530" stroke-width="1" />
-      <text x="282" y="18" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">DAILY AVERAGE</text>
-      <text x="282" y="38" text-anchor="middle" font-family="'Fira Code', monospace" font-size="16" font-weight="700" fill="#e2e8f0">2.3</text>
-    </g>
-  </g>
-
-  <!-- Grid Lines -->
+  <!-- Gridlines -->
   <g id="grid">
     
-        <line x1="65" y1="310.0" x2="1155" y2="310.0" stroke="#1e1e26" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="50" y="314.0" text-anchor="end" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">0</text>
-        
-        <line x1="65" y1="257.5" x2="1155" y2="257.5" stroke="#1e1e26" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="50" y="261.5" text-anchor="end" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">5</text>
-        
-        <line x1="65" y1="205.0" x2="1155" y2="205.0" stroke="#1e1e26" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="50" y="209.0" text-anchor="end" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">10</text>
-        
-        <line x1="65" y1="152.5" x2="1155" y2="152.5" stroke="#1e1e26" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="50" y="156.5" text-anchor="end" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">15</text>
-        
-        <line x1="65" y1="100.0" x2="1155" y2="100.0" stroke="#1e1e26" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="50" y="104.0" text-anchor="end" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">20</text>
-        
+    <line x1="55" y1="270.0" x2="1065" y2="270.0" stroke="#1e2029" stroke-width="1" />
+    <text x="43" y="274.0" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">0</text>
+    <line x1="55" y1="220.0" x2="1065" y2="220.0" stroke="#1e2029" stroke-width="1" />
+    <text x="43" y="224.0" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">5</text>
+    <line x1="55" y1="170.0" x2="1065" y2="170.0" stroke="#1e2029" stroke-width="1" />
+    <text x="43" y="174.0" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">10</text>
+    <line x1="55" y1="120.0" x2="1065" y2="120.0" stroke="#1e2029" stroke-width="1" />
+    <text x="43" y="124.0" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">15</text>
+    <line x1="55" y1="70.0" x2="1065" y2="70.0" stroke="#1e2029" stroke-width="1" />
+    <text x="43" y="74.0" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">20</text>
   </g>
 
-  <!-- Area Fill -->
-  <path d="M 65.00 310.00 C 81.35 310.00, 84.98 310.00, 101.33 310.00 C 117.68 310.00, 121.32 310.00, 137.67 310.00 C 154.02 310.00, 157.65 310.00, 174.00 310.00 C 190.35 310.00, 193.98 310.00, 210.33 310.00 C 226.68 310.00, 230.32 310.00, 246.67 310.00 C 263.02 310.00, 266.65 310.00, 283.00 310.00 C 299.35 310.00, 302.98 310.00, 319.33 310.00 C 335.68 310.00, 339.32 310.00, 355.67 310.00 C 372.02 310.00, 375.65 310.00, 392.00 310.00 C 408.35 310.00, 411.98 310.00, 428.33 310.00 C 444.68 310.00, 448.32 310.00, 464.67 310.00 C 481.02 310.00, 484.65 310.00, 501.00 310.00 C 517.35 310.00, 520.98 310.00, 537.33 310.00 C 553.68 310.00, 557.32 310.00, 573.67 310.00 C 590.02 310.00, 593.65 310.00, 610.00 310.00 C 626.35 310.00, 629.98 310.00, 646.33 310.00 C 662.68 310.00, 666.32 310.00, 682.67 310.00 C 699.02 310.00, 702.65 236.50, 719.00 236.50 C 735.35 236.50, 738.98 278.50, 755.33 278.50 C 771.68 278.50, 775.32 121.00, 791.67 121.00 C 808.02 121.00, 811.65 236.50, 828.00 236.50 C 844.35 236.50, 847.98 268.00, 864.33 268.00 C 880.68 268.00, 884.32 278.50, 900.67 278.50 C 917.02 278.50, 920.65 247.00, 937.00 247.00 C 953.35 247.00, 956.98 236.50, 973.33 236.50 C 989.68 236.50, 993.32 289.00, 1009.67 289.00 C 1026.02 289.00, 1029.65 257.50, 1046.00 257.50 C 1062.35 257.50, 1065.98 257.50, 1082.33 257.50 C 1098.68 257.50, 1102.32 278.50, 1118.67 278.50 C 1135.02 278.50, 1138.65 289.00, 1155.00 289.00 L 1155.00 310.00 L 65.00 310.00 Z" fill="url(#areaGradient)" />
+  <!-- Base Baseline -->
+  <line x1="55" y1="270" x2="1065" y2="270" stroke="#282a36" stroke-width="1" />
 
-  <!-- Smooth Flow Line -->
-  <path d="M 65.00 310.00 C 81.35 310.00, 84.98 310.00, 101.33 310.00 C 117.68 310.00, 121.32 310.00, 137.67 310.00 C 154.02 310.00, 157.65 310.00, 174.00 310.00 C 190.35 310.00, 193.98 310.00, 210.33 310.00 C 226.68 310.00, 230.32 310.00, 246.67 310.00 C 263.02 310.00, 266.65 310.00, 283.00 310.00 C 299.35 310.00, 302.98 310.00, 319.33 310.00 C 335.68 310.00, 339.32 310.00, 355.67 310.00 C 372.02 310.00, 375.65 310.00, 392.00 310.00 C 408.35 310.00, 411.98 310.00, 428.33 310.00 C 444.68 310.00, 448.32 310.00, 464.67 310.00 C 481.02 310.00, 484.65 310.00, 501.00 310.00 C 517.35 310.00, 520.98 310.00, 537.33 310.00 C 553.68 310.00, 557.32 310.00, 573.67 310.00 C 590.02 310.00, 593.65 310.00, 610.00 310.00 C 626.35 310.00, 629.98 310.00, 646.33 310.00 C 662.68 310.00, 666.32 310.00, 682.67 310.00 C 699.02 310.00, 702.65 236.50, 719.00 236.50 C 735.35 236.50, 738.98 278.50, 755.33 278.50 C 771.68 278.50, 775.32 121.00, 791.67 121.00 C 808.02 121.00, 811.65 236.50, 828.00 236.50 C 844.35 236.50, 847.98 268.00, 864.33 268.00 C 880.68 268.00, 884.32 278.50, 900.67 278.50 C 917.02 278.50, 920.65 247.00, 937.00 247.00 C 953.35 247.00, 956.98 236.50, 973.33 236.50 C 989.68 236.50, 993.32 289.00, 1009.67 289.00 C 1026.02 289.00, 1029.65 257.50, 1046.00 257.50 C 1062.35 257.50, 1065.98 257.50, 1082.33 257.50 C 1098.68 257.50, 1102.32 278.50, 1118.67 278.50 C 1135.02 278.50, 1138.65 289.00, 1155.00 289.00" fill="none" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Shaded Area -->
+  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,270.00 L 647.07,200.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,210.00 L 890.86,200.00 L 925.69,250.00 L 960.52,220.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,240.00 L 1065.00,270.00 L 55.00,270.00 Z" fill="url(#areaGrad)" />
 
-  <!-- Data Point Circles -->
+  <!-- Sharp Chart Line -->
+  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,270.00 L 647.07,200.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,210.00 L 890.86,200.00 L 925.69,250.00 L 960.52,220.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,240.00" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+
+  <!-- Vertices -->
   <g id="points">
     
-            <circle cx="65.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="101.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="137.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="174.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="210.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="246.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="283.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="319.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="355.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="392.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="428.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="464.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="501.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="537.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="573.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="610.0" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="646.3" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="682.7" cy="310.0" r="2" fill="#2d2d38" />
-            
-            <circle cx="719.0" cy="236.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="719.0" cy="236.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="755.3" cy="278.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="755.3" cy="278.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="791.7" cy="121.0" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="791.7" cy="121.0" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="828.0" cy="236.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="828.0" cy="236.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="864.3" cy="268.0" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="864.3" cy="268.0" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="900.7" cy="278.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="900.7" cy="278.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="937.0" cy="247.0" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="937.0" cy="247.0" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="973.3" cy="236.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="973.3" cy="236.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="1009.7" cy="289.0" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="1009.7" cy="289.0" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="1046.0" cy="257.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="1046.0" cy="257.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="1082.3" cy="257.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="1082.3" cy="257.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="1118.7" cy="278.5" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="1118.7" cy="278.5" r="1.5" fill="#38bdf8" />
-            
-            <circle cx="1155.0" cy="289.0" r="4.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2.5" />
-            <circle cx="1155.0" cy="289.0" r="1.5" fill="#38bdf8" />
-            
+    <circle cx="647.1" cy="200.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="681.9" cy="240.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="716.7" cy="90.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="751.6" cy="200.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="786.4" cy="230.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="821.2" cy="240.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="856.0" cy="210.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="890.9" cy="200.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="925.7" cy="250.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="960.5" cy="220.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="995.3" cy="220.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="1030.2" cy="240.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="1065.0" cy="240.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
   </g>
 
-  <!-- X-Axis Labels -->
-  <g id="x-axis">
+  <!-- Day Ticks -->
+  <g id="labels">
     
-            <line x1="65.0" y1="310" x2="65.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="65.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">27 Oct</text>
-            
-            <line x1="137.7" y1="310" x2="137.7" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="137.7" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">29</text>
-            
-            <line x1="210.3" y1="310" x2="210.3" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="210.3" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">31</text>
-            
-            <line x1="283.0" y1="310" x2="283.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="283.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">2</text>
-            
-            <line x1="355.7" y1="310" x2="355.7" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="355.7" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">4</text>
-            
-            <line x1="428.3" y1="310" x2="428.3" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="428.3" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">6</text>
-            
-            <line x1="501.0" y1="310" x2="501.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="501.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">8</text>
-            
-            <line x1="573.7" y1="310" x2="573.7" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="573.7" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">10</text>
-            
-            <line x1="646.3" y1="310" x2="646.3" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="646.3" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">12</text>
-            
-            <line x1="719.0" y1="310" x2="719.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="719.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">14</text>
-            
-            <line x1="791.7" y1="310" x2="791.7" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="791.7" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">16</text>
-            
-            <line x1="864.3" y1="310" x2="864.3" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="864.3" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">18</text>
-            
-            <line x1="937.0" y1="310" x2="937.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="937.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">20</text>
-            
-            <line x1="1009.7" y1="310" x2="1009.7" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="1009.7" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">22</text>
-            
-            <line x1="1082.3" y1="310" x2="1082.3" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="1082.3" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">24</text>
-            
-            <line x1="1155.0" y1="310" x2="1155.0" y2="316" stroke="#2d2d38" stroke-width="1" />
-            <text x="1155.0" y="332" text-anchor="middle" font-family="'Fira Code', monospace, sans-serif" font-size="11" fill="#64748b">26 Nov</text>
-            
+    <line x1="55.0" y1="270" x2="55.0" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="55.0" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">Oct 28</text>
+    <line x1="124.7" y1="270" x2="124.7" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="124.7" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">30</text>
+    <line x1="194.3" y1="270" x2="194.3" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="194.3" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">Nov 01</text>
+    <line x1="264.0" y1="270" x2="264.0" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="264.0" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">3</text>
+    <line x1="333.6" y1="270" x2="333.6" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="333.6" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">5</text>
+    <line x1="403.3" y1="270" x2="403.3" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="403.3" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">7</text>
+    <line x1="472.9" y1="270" x2="472.9" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="472.9" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">9</text>
+    <line x1="542.6" y1="270" x2="542.6" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="542.6" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">11</text>
+    <line x1="612.2" y1="270" x2="612.2" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="612.2" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">13</text>
+    <line x1="681.9" y1="270" x2="681.9" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="681.9" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">15</text>
+    <line x1="751.6" y1="270" x2="751.6" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="751.6" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">17</text>
+    <line x1="821.2" y1="270" x2="821.2" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="821.2" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">19</text>
+    <line x1="890.9" y1="270" x2="890.9" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="890.9" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">21</text>
+    <line x1="960.5" y1="270" x2="960.5" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="960.5" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">23</text>
+    <line x1="1030.2" y1="270" x2="1030.2" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="1030.2" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">25</text>
+    <line x1="1065.0" y1="270" x2="1065.0" y2="275" stroke="#282a36" stroke-width="1" />
+    <text x="1065.0" y="290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">26</text>
   </g>
 </svg>
