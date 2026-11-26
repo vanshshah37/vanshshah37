@@ -278,8 +278,8 @@ most of this is actively used in production and contests, and continuously learn
 
 <div align="center">
 
-<!-- GitHub Activity Graph -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=vanshshah37&bg_color=08080a&color=ff6b4a&line=38bdf8&point=ff6b4a&area=true&hide_border=true" width="100%" alt="GitHub Activity Graph" />
+<!-- GitHub Activity & Contribution Velocity Graph (Self-Updating) -->
+<img src="https://raw.githubusercontent.com/vanshshah37/vanshshah37/main/assets/activity-graph.svg" width="100%" alt="GitHub Activity & Contribution Velocity Graph" />
 
 <br/><br/>
 
