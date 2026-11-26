@@ -15,7 +15,7 @@
 
   <!-- Simple summary stats on right -->
   <text x="1065" y="40" text-anchor="end" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#ff6b4a">
-    74 <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">contributions</tspan> &#160;·&#160; <tspan fill="#38bdf8">18</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">peak</tspan> &#160;·&#160; <tspan fill="#94a3b8">2.5</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">avg/day</tspan>
+    75 <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">contributions</tspan> &#160;·&#160; <tspan fill="#38bdf8">18</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">peak</tspan> &#160;·&#160; <tspan fill="#94a3b8">2.5</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">avg/day</tspan>
   </text>
 
   <!-- Gridlines -->
@@ -37,10 +37,10 @@
   <line x1="55" y1="270" x2="1065" y2="270" stroke="#282a36" stroke-width="1" />
 
   <!-- Shaded Area -->
-  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,260.00 L 647.07,210.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,200.00 L 890.86,210.00 L 925.69,240.00 L 960.52,230.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,230.00 L 1065.00,270.00 L 55.00,270.00 Z" fill="url(#areaGrad)" />
+  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,260.00 L 647.07,210.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,200.00 L 890.86,210.00 L 925.69,240.00 L 960.52,230.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,220.00 L 1065.00,270.00 L 55.00,270.00 Z" fill="url(#areaGrad)" />
 
   <!-- Sharp Chart Line -->
-  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,260.00 L 647.07,210.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,200.00 L 890.86,210.00 L 925.69,240.00 L 960.52,230.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,230.00" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M 55.00,270.00 L 89.83,270.00 L 124.66,270.00 L 159.48,270.00 L 194.31,270.00 L 229.14,270.00 L 263.97,270.00 L 298.79,270.00 L 333.62,270.00 L 368.45,270.00 L 403.28,270.00 L 438.10,270.00 L 472.93,270.00 L 507.76,270.00 L 542.59,270.00 L 577.41,270.00 L 612.24,260.00 L 647.07,210.00 L 681.90,240.00 L 716.72,90.00 L 751.55,200.00 L 786.38,230.00 L 821.21,240.00 L 856.03,200.00 L 890.86,210.00 L 925.69,240.00 L 960.52,230.00 L 995.34,220.00 L 1030.17,240.00 L 1065.00,220.00" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
 
   <!-- Vertices -->
   <g id="points">
@@ -58,7 +58,7 @@
     <circle cx="960.5" cy="230.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
     <circle cx="995.3" cy="220.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
     <circle cx="1030.2" cy="240.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
-    <circle cx="1065.0" cy="230.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
+    <circle cx="1065.0" cy="220.0" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />
   </g>
 
   <!-- Day Ticks -->
