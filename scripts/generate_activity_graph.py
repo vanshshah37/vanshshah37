@@ -91,6 +91,9 @@ def generate_svg(user_data, username):
                 "count": day["contributionCount"]
             })
             
+    # Filter to last 6 months (~182 days / 26 weeks)
+    graph_days = all_days[-182:] if len(all_days) >= 182 else all_days
+    
     total_days_since_joined = max(1, (now_dt - created_at_dt).days)
     active_days_count = sum(1 for d in all_days if d["count"] > 0)
     
@@ -115,8 +118,8 @@ def generate_svg(user_data, username):
         current_streak += 1
         idx += 1
         
-    # Most productive day
-    peak_day_obj = max(all_days, key=lambda d: d["count"]) if all_days else {"date": "2026-01-01", "count": 0}
+    # Most productive day (within the 6-month timeframe)
+    peak_day_obj = max(graph_days, key=lambda d: d["count"]) if graph_days else {"date": "2026-01-01", "count": 0}
     peak_count = peak_day_obj["count"]
     peak_dt = datetime.strptime(peak_day_obj["date"], "%Y-%m-%d")
     peak_day_str = f"{format_ordinal(peak_dt.day)} {peak_dt.strftime('%b, %Y')}"
@@ -201,7 +204,7 @@ def generate_svg(user_data, username):
     plot_w = chart_frame_w - margin_left - margin_right
     plot_h = chart_frame_h - margin_top - margin_bottom
     
-    n_pts = len(all_days)
+    n_pts = len(graph_days)
     step_x = plot_w / (n_pts - 1) if n_pts > 1 else plot_w
     
     # Y-axis Scale
@@ -224,7 +227,7 @@ def generate_svg(user_data, username):
         y = chart_frame_y + margin_top + plot_h - (count / y_max) * plot_h
         return x, y
 
-    points = [to_coords(i, d["count"]) for i, d in enumerate(all_days)]
+    points = [to_coords(i, d["count"]) for i, d in enumerate(graph_days)]
     
     # Sharp polyline path
     line_path = " ".join([f"{'M' if i == 0 else 'L'} {pt[0]:.2f},{pt[1]:.2f}" for i, pt in enumerate(points)])
@@ -243,12 +246,13 @@ def generate_svg(user_data, username):
     <line x1="{chart_frame_x + margin_left}" y1="{y_pos:.1f}" x2="{chart_frame_x + chart_frame_w - margin_right}" y2="{y_pos:.1f}" stroke="#1f242c" stroke-width="1" />
     <text x="{chart_frame_x + margin_left - 12}" y="{y_pos + 4.5:.1f}" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="13" font-weight="600" fill="#8b949e">{val}</text>""")
         
-    # X labels: every ~2-3 weeks (spaced cleanly for 13px font)
+    # X labels: every ~2-3 weeks (spaced cleanly across 6 months)
     x_label_svgs = []
-    label_step = max(1, n_pts // 14)
-    for i in range(0, n_pts, label_step):
+    label_step = max(1, n_pts // 12)
+    labeled_indices = sorted(set(list(range(0, n_pts, label_step)) + [n_pts - 1]))
+    for i in labeled_indices:
         x, y = points[i]
-        dt = datetime.strptime(all_days[i]["date"], "%Y-%m-%d")
+        dt = datetime.strptime(graph_days[i]["date"], "%Y-%m-%d")
         date_str = dt.strftime("%b %d")
         x_label_svgs.append(f"""
     <line x1="{x:.1f}" y1="{bottom_y}" x2="{x:.1f}" y2="{bottom_y + 6}" stroke="#282e38" stroke-width="1" />
@@ -271,7 +275,7 @@ def generate_svg(user_data, username):
   </g>
 
   <!-- Section Title -->
-  <text x="20" y="{chart_title_y}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f0f6fc" letter-spacing="0.2">Contributions Over Time</text>
+  <text x="20" y="{chart_title_y}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f0f6fc" letter-spacing="0.2">Contributions Over Time <tspan font-size="14" font-weight="500" fill="#8b949e">&#183; Last 6 Months</tspan></text>
 
   <!-- Main Chart Frame -->
   <rect x="{chart_frame_x}" y="{chart_frame_y}" width="{chart_frame_w}" height="{chart_frame_h}" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1" />
