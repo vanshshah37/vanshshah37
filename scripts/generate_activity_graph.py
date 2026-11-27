@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-Custom GitHub Activity Graph Generator
-Renders a sharp, clean, developer-first activity chart (inspired by Grafana & GitHub Insights).
-Zero AI fluff: clean axes, sharp grid, precise line geometry, and crisp typography.
+Custom GitHub Contributions Over Time Dashboard & Full-Year Frequency Graph
+Renders a complete, professional developer dashboard matching the exact layout of
+GitHub-Stat-Checker:
+- Header Stats Cards: Joined GitHub, Total Days & Active Days, Total Contributions (Public vs Private),
+  Longest & Current Streak, and Most Productive Day.
+- Full-Year 'Contributions Over Time' High-Density Timeline Chart.
 """
 
 import os
@@ -10,11 +13,11 @@ import sys
 import json
 import urllib.request
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 
 def get_github_token():
     """Retrieve GitHub token from env or gh CLI."""
-    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or os.environ.get("PAT_TOKEN")
     if token:
         return token
     try:
@@ -25,12 +28,18 @@ def get_github_token():
         pass
     return None
 
-def fetch_contributions(username, token):
-    """Fetch user contribution calendar from GitHub GraphQL API."""
+def fetch_full_data(username, token):
+    """Fetch complete profile stats and 1-year contribution calendar."""
     query = """
     query($login: String!) {
       user(login: $login) {
+        createdAt
         contributionsCollection {
+          totalCommitContributions
+          totalPullRequestContributions
+          totalPullRequestReviewContributions
+          totalIssueContributions
+          restrictedContributionsCount
           contributionCalendar {
             totalContributions
             weeks {
@@ -45,7 +54,7 @@ def fetch_contributions(username, token):
     }
     """
     headers = {
-        "User-Agent": "Antigravity-Activity-Graph/1.0",
+        "User-Agent": "Antigravity-Dashboard/2.0",
         "Content-Type": "application/json",
     }
     if token:
@@ -58,133 +67,242 @@ def fetch_contributions(username, token):
         result = json.loads(resp.read().decode("utf-8"))
         if "errors" in result:
             raise RuntimeError(f"GraphQL errors: {result['errors']}")
-        return result["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+        return result["data"]["user"]
 
-def generate_svg(days_data, total_30d, peak_val, avg_val, username):
-    """Render a crisp, human-crafted developer line chart."""
-    width = 1100
-    height = 320
+def format_ordinal(n):
+    if 11 <= (n % 100) <= 13:
+        suffix = 'th'
+    else:
+        suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
+    return f"{n}{suffix}"
+
+def generate_svg(user_data, username):
+    created_at_dt = datetime.fromisoformat(user_data["createdAt"].replace("Z", "+00:00"))
+    now_dt = datetime.now(timezone.utc)
     
-    # Precise margins
-    margin_left = 55
-    margin_right = 35
-    margin_top = 70
+    calendar = user_data["contributionsCollection"]["contributionCalendar"]
+    restricted_count = user_data["contributionsCollection"].get("restrictedContributionsCount", 0)
+    total_contribs = calendar["totalContributions"]
+    public_count = max(0, total_contribs - restricted_count)
+    
+    # Flatten all contribution days (typically ~370 days / 52 weeks)
+    all_days = []
+    for week in calendar["weeks"]:
+        for day in week["contributionDays"]:
+            all_days.append({
+                "date": day["date"],
+                "count": day["contributionCount"]
+            })
+            
+    total_days_since_joined = max(1, (now_dt - created_at_dt).days)
+    active_days_count = sum(1 for d in all_days if d["count"] > 0)
+    
+    # Calculate Streaks
+    longest_streak = 0
+    cur_streak = 0
+    for d in all_days:
+        if d["count"] > 0:
+            cur_streak += 1
+            if cur_streak > longest_streak:
+                longest_streak = cur_streak
+        else:
+            cur_streak = 0
+            
+    # Current streak (reverse traversal)
+    current_streak = 0
+    rev_days = list(reversed(all_days))
+    idx = 0
+    if rev_days and rev_days[0]["count"] == 0:
+        idx = 1
+    while idx < len(rev_days) and rev_days[idx]["count"] > 0:
+        current_streak += 1
+        idx += 1
+        
+    # Most productive day
+    peak_day_obj = max(all_days, key=lambda d: d["count"]) if all_days else {"date": "2026-01-01", "count": 0}
+    peak_count = peak_day_obj["count"]
+    peak_dt = datetime.strptime(peak_day_obj["date"], "%Y-%m-%d")
+    peak_day_str = f"{format_ordinal(peak_dt.day)} {peak_dt.strftime('%b, %Y')}"
+    
+    # Formatted joined date
+    joined_date_str = f"{format_ordinal(created_at_dt.day)} {created_at_dt.strftime('%b, %Y')}"
+    years_diff = (now_dt.year - created_at_dt.year)
+    months_diff = (now_dt.month - created_at_dt.month)
+    if months_diff < 0:
+        years_diff -= 1
+        months_diff += 12
+    joined_subtext = f"{years_diff} year{'s' if years_diff != 1 else ''} {months_diff} month{'s' if months_diff != 1 else ''}"
+    
+    # SVG Dimensions
+    width = 1200
+    height = 510
+    
+    # Layout Coordinates
+    # Top Stat Cards (Row of 5 cards)
+    cards_y = 20
+    card_h = 95
+    card_gap = 14
+    total_cards = 5
+    card_w = (width - 40 - (total_cards - 1) * card_gap) / total_cards
+    
+    cards_data = [
+        {
+            "label": "Joined GitHub since",
+            "val": joined_date_str,
+            "sub": f"↑ {joined_subtext}",
+            "sub_color": "#22c55e"
+        },
+        {
+            "label": "Total days on GitHub",
+            "val": f"{total_days_since_joined} days",
+            "sub": f"↑ Active for: {active_days_count} days",
+            "sub_color": "#22c55e"
+        },
+        {
+            "label": "Total Contributions",
+            "val": f"{total_contribs} commits",
+            "sub": f"↑ Public: {public_count} | Private: {restricted_count}",
+            "sub_color": "#22c55e"
+        },
+        {
+            "label": "Longest Streak",
+            "val": f"{longest_streak} days",
+            "sub": f"↑ Current Streak: {current_streak} days",
+            "sub_color": "#22c55e" if current_streak > 0 else "#94a3b8"
+        },
+        {
+            "label": "Most Productive Day",
+            "val": peak_day_str,
+            "sub": f"↑ {peak_count} commits",
+            "sub_color": "#22c55e"
+        }
+    ]
+    
+    card_svgs = []
+    for i, c in enumerate(cards_data):
+        cx = 20 + i * (card_w + card_gap)
+        card_svgs.append(f"""
+    <g transform="translate({cx:.1f}, {cards_y})">
+      <rect width="{card_w:.1f}" height="{card_h}" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1" />
+      <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500" fill="#8b949e">{c['label']}</text>
+      <text x="16" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">{c['val']}</text>
+      <text x="16" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500" fill="{c['sub_color']}">{c['sub']}</text>
+    </g>""")
+
+    # Chart Section
+    chart_title_y = 152
+    chart_frame_x = 20
+    chart_frame_y = 175
+    chart_frame_w = width - 40
+    chart_frame_h = 315
+    
+    margin_left = 65
+    margin_right = 30
+    margin_top = 35
     margin_bottom = 50
     
-    plot_width = width - margin_left - margin_right
-    plot_height = height - margin_top - margin_bottom
+    plot_w = chart_frame_w - margin_left - margin_right
+    plot_h = chart_frame_h - margin_top - margin_bottom
     
-    n_days = len(days_data)
-    if n_days < 2:
-        return ""
+    n_pts = len(all_days)
+    step_x = plot_w / (n_pts - 1) if n_pts > 1 else plot_w
     
-    step_x = plot_width / (n_days - 1)
-    
-    # Y-axis calculation: clean step of 2 or 5
-    max_count = max(peak_val, 4)
-    if max_count <= 6:
-        y_max = 6
+    # Y-axis Scale
+    y_max_raw = max(peak_count, 10)
+    # round to multiple of 2 or 5
+    if y_max_raw <= 10:
+        y_max = 10
         y_step = 2
-    elif max_count <= 12:
-        y_max = 12
-        y_step = 3
-    elif max_count <= 20:
+    elif y_max_raw <= 20:
         y_max = 20
+        y_step = 4
+    elif y_max_raw <= 30:
+        y_max = 30
         y_step = 5
     else:
-        y_step = 5
-        y_max = ((max_count + 4) // 5) * 5
+        y_step = 10
+        y_max = ((y_max_raw + 9) // 10) * 10
         
     def to_coords(idx, count):
-        x = margin_left + idx * step_x
-        y = margin_top + plot_height - (count / y_max) * plot_height
+        x = chart_frame_x + margin_left + idx * step_x
+        y = chart_frame_y + margin_top + plot_h - (count / y_max) * plot_h
         return x, y
 
-    points = [to_coords(i, d["count"]) for i, d in enumerate(days_data)]
+    points = [to_coords(i, d["count"]) for i, d in enumerate(all_days)]
     
-    # Sharp, precise polyline path (clean engineering look)
+    # Sharp polyline path
     line_path = " ".join([f"{'M' if i == 0 else 'L'} {pt[0]:.2f},{pt[1]:.2f}" for i, pt in enumerate(points)])
     
     # Translucent area fill
-    bottom_y = margin_top + plot_height
+    bottom_y = chart_frame_y + margin_top + plot_h
     area_path = f"{line_path} L {points[-1][0]:.2f},{bottom_y:.2f} L {points[0][0]:.2f},{bottom_y:.2f} Z"
     
-    # Clean horizontal gridlines
-    grid_lines = []
+    # Grid lines & Y labels
+    grid_svgs = []
     num_grid_steps = y_max // y_step
     for i in range(num_grid_steps + 1):
         val = i * y_step
-        y_pos = margin_top + plot_height - (val / y_max) * plot_height
-        grid_lines.append(f"""
-    <line x1="{margin_left}" y1="{y_pos:.1f}" x2="{width - margin_right}" y2="{y_pos:.1f}" stroke="#1e2029" stroke-width="1" />
-    <text x="{margin_left - 12}" y="{y_pos + 4:.1f}" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">{val}</text>""")
+        y_pos = chart_frame_y + margin_top + plot_h - (val / y_max) * plot_h
+        grid_svgs.append(f"""
+    <line x1="{chart_frame_x + margin_left}" y1="{y_pos:.1f}" x2="{chart_frame_x + chart_frame_w - margin_right}" y2="{y_pos:.1f}" stroke="#1f242c" stroke-width="1" />
+    <text x="{chart_frame_x + margin_left - 10}" y="{y_pos + 4:.1f}" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="10.5" font-weight="500" fill="#8b949e">{val}</text>""")
         
-    # Clean X-axis day labels
-    x_labels = []
-    for i, d in enumerate(days_data):
+    # X labels: every ~2-3 weeks (approx every 18-20 points out of 370)
+    x_label_svgs = []
+    label_step = max(1, n_pts // 18)
+    for i in range(0, n_pts, label_step):
         x, y = points[i]
-        dt = datetime.strptime(d["date"], "%Y-%m-%d")
-        # Label every 2nd day or first/last
-        if i % 2 == 0 or i == n_days - 1:
-            day_str = dt.strftime("%b %d") if (i == 0 or dt.day == 1) else str(dt.day)
-            x_labels.append(f"""
-    <line x1="{x:.1f}" y1="{bottom_y}" x2="{x:.1f}" y2="{bottom_y + 5}" stroke="#282a36" stroke-width="1" />
-    <text x="{x:.1f}" y="{bottom_y + 20}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Fira Code', monospace" font-size="11" fill="#64748b">{day_str}</text>""")
-
-    # Sharp data points
-    point_elements = []
-    for i, d in enumerate(days_data):
-        x, y = points[i]
-        count = d["count"]
-        if count > 0:
-            point_elements.append(f"""
-    <circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" fill="#08080a" stroke="#ff6b4a" stroke-width="2" />""")
-
-    start_date = datetime.strptime(days_data[0]["date"], "%Y-%m-%d").strftime("%b %d")
-    end_date = datetime.strptime(days_data[-1]["date"], "%Y-%m-%d").strftime("%b %d")
+        dt = datetime.strptime(all_days[i]["date"], "%Y-%m-%d")
+        date_str = dt.strftime("%b %d")
+        x_label_svgs.append(f"""
+    <line x1="{x:.1f}" y1="{bottom_y}" x2="{x:.1f}" y2="{bottom_y + 4}" stroke="#282e38" stroke-width="1" />
+    <text x="{x:.1f}" y="{bottom_y + 18}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10.5" fill="#8b949e">{date_str}</text>""")
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="100%" height="100%">
   <defs>
-    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff6b4a" stop-opacity="0.22" />
-      <stop offset="100%" stop-color="#ff6b4a" stop-opacity="0.01" />
+    <linearGradient id="emeraldArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.0" />
     </linearGradient>
   </defs>
 
-  <!-- Frame Background -->
-  <rect width="{width}" height="{height}" rx="8" fill="#08080a" stroke="#1f222e" stroke-width="1" />
+  <!-- Canvas Background -->
+  <rect width="{width}" height="{height}" fill="#08080a" />
 
-  <!-- Clean Minimalist Header -->
-  <text x="{margin_left}" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5f9" letter-spacing="0.2">Activity · Last 30 Days</text>
-  <text x="{margin_left}" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">{start_date} – {end_date} · commits, pull requests, reviews, and issues</text>
-
-  <!-- Simple summary stats on right -->
-  <text x="{width - margin_right}" y="40" text-anchor="end" font-family="'Fira Code', monospace" font-size="13" font-weight="600" fill="#ff6b4a">
-    {total_30d} <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">contributions</tspan> &#160;·&#160; <tspan fill="#38bdf8">{peak_val}</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">peak</tspan> &#160;·&#160; <tspan fill="#94a3b8">{avg_val:.1f}</tspan> <tspan fill="#64748b" font-weight="400" font-family="sans-serif" font-size="12">avg/day</tspan>
-  </text>
-
-  <!-- Gridlines -->
-  <g id="grid">
-    {''.join(grid_lines)}
+  <!-- Top Metric Cards -->
+  <g id="top-cards">
+    {''.join(card_svgs)}
   </g>
 
-  <!-- Base Baseline -->
-  <line x1="{margin_left}" y1="{bottom_y}" x2="{width - margin_right}" y2="{bottom_y}" stroke="#282a36" stroke-width="1" />
+  <!-- Section Title -->
+  <text x="20" y="{chart_title_y}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f0f6fc" letter-spacing="0.2">Contributions Over Time</text>
 
-  <!-- Shaded Area -->
-  <path d="{area_path}" fill="url(#areaGrad)" />
+  <!-- Main Chart Frame -->
+  <rect x="{chart_frame_x}" y="{chart_frame_y}" width="{chart_frame_w}" height="{chart_frame_h}" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1" />
 
-  <!-- Sharp Chart Line -->
-  <path d="{line_path}" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+  <!-- Y Axis Title (Rotated) -->
+  <text transform="rotate(-90)" x="-{chart_frame_y + (chart_frame_h / 2):.1f}" y="{chart_frame_x + 22}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#8b949e" letter-spacing="0.5">Contributions</text>
 
-  <!-- Vertices -->
-  <g id="points">
-    {''.join(point_elements)}
+  <!-- X Axis Title (Bottom Centered) -->
+  <text x="{chart_frame_x + (chart_frame_w / 2):.1f}" y="{chart_frame_y + chart_frame_h - 10}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#8b949e" letter-spacing="0.5">Date</text>
+
+  <!-- Horizontal Grid Lines -->
+  <g id="grid-lines">
+    {''.join(grid_svgs)}
   </g>
 
-  <!-- Day Ticks -->
-  <g id="labels">
-    {''.join(x_labels)}
+  <!-- Baseline -->
+  <line x1="{chart_frame_x + margin_left}" y1="{bottom_y}" x2="{chart_frame_x + chart_frame_w - margin_right}" y2="{bottom_y}" stroke="#21262d" stroke-width="1" />
+
+  <!-- Area Fill -->
+  <path d="{area_path}" fill="url(#emeraldArea)" />
+
+  <!-- High-Frequency Activity Line (Emerald Neon) -->
+  <path d="{line_path}" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+
+  <!-- X Axis Date Labels -->
+  <g id="x-axis-labels">
+    {''.join(x_label_svgs)}
   </g>
 </svg>
 """
@@ -196,27 +314,14 @@ def main():
     os.makedirs("assets", exist_ok=True)
     
     token = get_github_token()
-    calendar = fetch_contributions(username, token)
+    print(f"Fetching full 365-day dataset for @{username}...")
+    user_data = fetch_full_data(username, token)
     
-    all_days = []
-    for week in calendar["weeks"]:
-        for day in week["contributionDays"]:
-            all_days.append({
-                "date": day["date"],
-                "count": day["contributionCount"]
-            })
-            
-    recent_days = all_days[-30:]
-    counts = [d["count"] for d in recent_days]
-    total_30d = sum(counts)
-    peak_val = max(counts) if counts else 0
-    avg_val = total_30d / len(counts) if counts else 0.0
-    
-    svg_code = generate_svg(recent_days, total_30d, peak_val, avg_val, username)
+    svg_code = generate_svg(user_data, username)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg_code.strip() + "\n")
         
-    print(f"Refined sharp activity graph saved to {output_path}.")
+    print(f"Successfully generated full-year dashboard at {output_path} ({len(svg_code)} bytes).")
 
 if __name__ == "__main__":
     main()
