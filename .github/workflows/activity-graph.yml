@@ -2,7 +2,8 @@ name: Generate Activity Graph
 
 on:
   schedule:
-    - cron: "0 */2 * * *" # Runs every 2 hours
+    # Runs every 2 hours between 10:30 AM and 2:30 AM IST (skips sleep hours ~2 AM - 10 AM IST)
+    - cron: "0 5-21/2 * * *"
   workflow_dispatch:
 
 permissions:
