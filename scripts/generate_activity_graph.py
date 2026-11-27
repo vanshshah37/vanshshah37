@@ -2,10 +2,7 @@
 """
 Custom GitHub Contributions Over Time Dashboard & Full-Year Frequency Graph
 Renders a complete, professional developer dashboard matching the exact layout of
-GitHub-Stat-Checker:
-- Header Stats Cards: Joined GitHub, Total Days & Active Days, Total Contributions (Public vs Private),
-  Longest & Current Streak, and Most Productive Day.
-- Full-Year 'Contributions Over Time' High-Density Timeline Chart.
+GitHub-Stat-Checker with large, sharp, bold, easily readable typography.
 """
 
 import os
@@ -135,12 +132,12 @@ def generate_svg(user_data, username):
     
     # SVG Dimensions
     width = 1200
-    height = 510
+    height = 560
     
     # Layout Coordinates
-    # Top Stat Cards (Row of 5 cards)
+    # Top Stat Cards (Row of 5 cards with large bold text)
     cards_y = 20
-    card_h = 95
+    card_h = 108
     card_gap = 14
     total_cards = 5
     card_w = (width - 40 - (total_cards - 1) * card_gap) / total_cards
@@ -184,22 +181,22 @@ def generate_svg(user_data, username):
         card_svgs.append(f"""
     <g transform="translate({cx:.1f}, {cards_y})">
       <rect width="{card_w:.1f}" height="{card_h}" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1" />
-      <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500" fill="#8b949e">{c['label']}</text>
-      <text x="16" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">{c['val']}</text>
-      <text x="16" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500" fill="{c['sub_color']}">{c['sub']}</text>
+      <text x="18" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#8b949e">{c['label']}</text>
+      <text x="18" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#f0f6fc">{c['val']}</text>
+      <text x="18" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="{c['sub_color']}">{c['sub']}</text>
     </g>""")
 
     # Chart Section
-    chart_title_y = 152
+    chart_title_y = 162
     chart_frame_x = 20
-    chart_frame_y = 175
+    chart_frame_y = 182
     chart_frame_w = width - 40
-    chart_frame_h = 315
+    chart_frame_h = 355
     
-    margin_left = 65
-    margin_right = 30
-    margin_top = 35
-    margin_bottom = 50
+    margin_left = 75
+    margin_right = 35
+    margin_top = 40
+    margin_bottom = 60
     
     plot_w = chart_frame_w - margin_left - margin_right
     plot_h = chart_frame_h - margin_top - margin_bottom
@@ -209,7 +206,6 @@ def generate_svg(user_data, username):
     
     # Y-axis Scale
     y_max_raw = max(peak_count, 10)
-    # round to multiple of 2 or 5
     if y_max_raw <= 10:
         y_max = 10
         y_step = 2
@@ -237,7 +233,7 @@ def generate_svg(user_data, username):
     bottom_y = chart_frame_y + margin_top + plot_h
     area_path = f"{line_path} L {points[-1][0]:.2f},{bottom_y:.2f} L {points[0][0]:.2f},{bottom_y:.2f} Z"
     
-    # Grid lines & Y labels
+    # Grid lines & Y labels (Clear, larger font)
     grid_svgs = []
     num_grid_steps = y_max // y_step
     for i in range(num_grid_steps + 1):
@@ -245,18 +241,18 @@ def generate_svg(user_data, username):
         y_pos = chart_frame_y + margin_top + plot_h - (val / y_max) * plot_h
         grid_svgs.append(f"""
     <line x1="{chart_frame_x + margin_left}" y1="{y_pos:.1f}" x2="{chart_frame_x + chart_frame_w - margin_right}" y2="{y_pos:.1f}" stroke="#1f242c" stroke-width="1" />
-    <text x="{chart_frame_x + margin_left - 10}" y="{y_pos + 4:.1f}" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="10.5" font-weight="500" fill="#8b949e">{val}</text>""")
+    <text x="{chart_frame_x + margin_left - 12}" y="{y_pos + 4.5:.1f}" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="13" font-weight="600" fill="#8b949e">{val}</text>""")
         
-    # X labels: every ~2-3 weeks (approx every 18-20 points out of 370)
+    # X labels: every ~2-3 weeks (spaced cleanly for 13px font)
     x_label_svgs = []
-    label_step = max(1, n_pts // 18)
+    label_step = max(1, n_pts // 14)
     for i in range(0, n_pts, label_step):
         x, y = points[i]
         dt = datetime.strptime(all_days[i]["date"], "%Y-%m-%d")
         date_str = dt.strftime("%b %d")
         x_label_svgs.append(f"""
-    <line x1="{x:.1f}" y1="{bottom_y}" x2="{x:.1f}" y2="{bottom_y + 4}" stroke="#282e38" stroke-width="1" />
-    <text x="{x:.1f}" y="{bottom_y + 18}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10.5" fill="#8b949e">{date_str}</text>""")
+    <line x1="{x:.1f}" y1="{bottom_y}" x2="{x:.1f}" y2="{bottom_y + 6}" stroke="#282e38" stroke-width="1" />
+    <text x="{x:.1f}" y="{bottom_y + 24}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="500" fill="#8b949e">{date_str}</text>""")
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="100%" height="100%">
   <defs>
@@ -275,16 +271,16 @@ def generate_svg(user_data, username):
   </g>
 
   <!-- Section Title -->
-  <text x="20" y="{chart_title_y}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f0f6fc" letter-spacing="0.2">Contributions Over Time</text>
+  <text x="20" y="{chart_title_y}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f0f6fc" letter-spacing="0.2">Contributions Over Time</text>
 
   <!-- Main Chart Frame -->
   <rect x="{chart_frame_x}" y="{chart_frame_y}" width="{chart_frame_w}" height="{chart_frame_h}" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1" />
 
   <!-- Y Axis Title (Rotated) -->
-  <text transform="rotate(-90)" x="-{chart_frame_y + (chart_frame_h / 2):.1f}" y="{chart_frame_x + 22}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#8b949e" letter-spacing="0.5">Contributions</text>
+  <text transform="rotate(-90)" x="-{chart_frame_y + (chart_frame_h / 2):.1f}" y="{chart_frame_x + 28}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#8b949e" letter-spacing="0.5">Contributions</text>
 
   <!-- X Axis Title (Bottom Centered) -->
-  <text x="{chart_frame_x + (chart_frame_w / 2):.1f}" y="{chart_frame_y + chart_frame_h - 10}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#8b949e" letter-spacing="0.5">Date</text>
+  <text x="{chart_frame_x + (chart_frame_w / 2):.1f}" y="{chart_frame_y + chart_frame_h - 12}" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#8b949e" letter-spacing="0.5">Date</text>
 
   <!-- Horizontal Grid Lines -->
   <g id="grid-lines">
@@ -298,7 +294,7 @@ def generate_svg(user_data, username):
   <path d="{area_path}" fill="url(#emeraldArea)" />
 
   <!-- High-Frequency Activity Line (Emerald Neon) -->
-  <path d="{line_path}" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="{line_path}" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" />
 
   <!-- X Axis Date Labels -->
   <g id="x-axis-labels">
